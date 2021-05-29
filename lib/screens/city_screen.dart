@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CityScreen extends StatefulWidget {
   @override
@@ -18,6 +19,10 @@ class _CityScreenState extends State<CityScreen> {
               Padding(
                 padding: const EdgeInsets.all(28.0),
                 child: TextField(
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (value){
+                    Navigator.pop(context, cityName);
+                  },
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Color(0xF7F7E7E),
@@ -39,10 +44,12 @@ class _CityScreenState extends State<CityScreen> {
                 onPressed: () {
                   Navigator.pop(context, cityName);
                 },
-                child: Text('Get Weather',
+                child: Text(
+                  'Get Weather',
                   style: TextStyle(
                     color: Colors.orange,
-                  ),),
+                  ),
+                ),
               )
             ],
           ),
